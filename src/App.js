@@ -2,16 +2,29 @@ import React, { Component } from 'react';
 
 import './App.css';
 
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+ 
 import Header from './Header';
-
-// var i=3;
-// let j=4;
+import Counter from './Counter';
+import Root from './Root';
+import About from './About';
+import NotFound404 from './NotFound404';
 
 class App extends Component
 {
+
+  constructor(props) {
+      super(props);
+
+      this.state = {
+        name: 'Greg',
+      };
+    }
+
+
   render() {
     
-    let name = 'my name from some api call'; // get_logged_in_user().name;
+    let { name } = this.state;
 
     let image = "myimage.png";
     const styles={
@@ -19,18 +32,21 @@ class App extends Component
     };
 
     return (
-      <div className="App">
-        <Header title={`my title: ${name}`} />
-        <Header title="my other title" />
-        <form>
-        <label htmlFor="my-radio" />
-        <input name="my-radio" />
-        </form>
-        <span style={styles}>hi</span>
-        <p className="App-intro">
-          sasdfasdf <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header name={name} title={`hello: ${name}`} />
+
+          <Switch>
+            <Route path="/" exact component={Root} />
+            <Route path="/about"  component={About} />
+            <Route component={NotFound404} />
+          </Switch>
+
+          
+          <Counter />
+          <Counter />
+        </div>
+      </BrowserRouter>
     );
 
   }
