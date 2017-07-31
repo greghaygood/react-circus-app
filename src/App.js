@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
 import "./App.css";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Counter from "./Counter";
 import Header from "./Header";
+import Lifecycle from "./Lifecycle";
 import Root from "./Root";
 import NotFound404 from "./NotFound404";
 
@@ -15,6 +15,7 @@ const CounterPage = (num) => (
 
 class App extends Component {
   render() {
+    console.log('App.render');
     return (
       <BrowserRouter>
         <div className="App">
@@ -26,6 +27,7 @@ class App extends Component {
               <Route path="/" exact component={Root} />
               <Route path="/counter1" component={() => CounterPage(1)} />
               <Route path="/counter2" component={() => CounterPage(2)}  />
+              <Route path="/lifecycle" component={Lifecycle}  />
               <Route component={NotFound404} />
             </Switch>
           </div>
