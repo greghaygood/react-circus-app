@@ -1,31 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import { NavLink } from "react-router-dom";
 
-import { Link } from 'react-router-dom';
-
-class Header extends Component
-{
-  	render() {
-
-  		const { title } = this.props;
-  		
-  		return (
-	    	<div className="App-header">
-	          <img src={logo} className="App-logo" alt="logo" />
-	          <h2>{title}</h2>
-
-            <nav>
-   
-                <Link to="/">HOME</Link>
-                
-                <Link to="/about">ABOUT</Link>
-     
-            </nav>
-	        </div>
-        );
-
-    }
+class Header extends Component {
+  render() {
+    return (
+      <div className="App-Menu">
+        <nav>
+          <ul>
+            <li>
+              <NavLink to="/" exact>Home</NavLink>
+            </li>
+            <li>
+              <NavLink to="/counter1">Counter 1</NavLink>
+            </li>
+            <li>
+              <NavLink to="/counter2">Counter 2</NavLink>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    );
+  }
 }
-
 
 export default Header;

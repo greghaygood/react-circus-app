@@ -6,19 +6,16 @@ import "./App.css";
 import { Link } from "react-router-dom";
 import Counter from "./Counter";
 
-class Root extends Component {
+class CounterPage extends Component {
   render() {
-    const { title } = this.props;
+    const { num } = this.props;
 
     return (
       <div>
-        <p>This is the home page.</p>
-        <p>
-          Check out the fun <Link to="/counter1">counter</Link>.
-        </p>
+        <Counter num={num} />
       </div>
     );
   }
 }
 
-export default Root;
+export default CounterPage;

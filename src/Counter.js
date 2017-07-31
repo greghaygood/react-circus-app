@@ -1,41 +1,60 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, { Component } from "react";
+import logo from "./logo.svg";
 
-class Counter extends Component
-{
-    constructor(props) {
-      super(props);
+import './Counter.css';
 
-      this.increment = this.increment.bind(this);
+class Counter extends Component {
+  constructor(props) {
+    super(props);
 
-      this.state = {
-        counter: 0,
-      };
+    this.increment = this.increment.bind(this);
+    this.decrement = this.decrement.bind(this);
+    this.reset = this.reset.bind(this);
+
+    this.state = {
+      counter: 0
+    };
+  }
+
+  increment() {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+
+  decrement() {
+    let newCount = this.state.counter - 1;
+    if (newCount < 0) {
+      newCount = 0;
     }
+    this.setState({
+      counter: newCount
+    });
+  }
 
-    increment() {
-      console.log('increment()', this);
-      this.setState({
-        counter: this.state.counter + 1,
-      })
-    }
+  reset() {
+    this.setState({
+      counter: 0
+    });
+  }
 
-  	render() {
+  render() {
+    const { num } = this.props;
+    const { counter } = this.state;
 
-  		const { title } = this.props;
-      const { counter } = this.state;
-  		
-  		return (
-        <div>
-    	        <p>
-              Counter: {counter}
-              </p>
-            <button onClick={this.increment}>+</button>
-        </div>
-        );
-
-    }
+    return (
+      <div className="counter">
+        <h2>
+          Counter #{num}: {counter}
+        </h2>
+        <nav>
+          <button onClick={this.increment}>+</button>
+          <button onClick={this.decrement}>-</button>
+          <button onClick={this.reset}>reset</button>
+        </nav>
+      </div>
+    );
+  }
 }
-
 
 export default Counter;
