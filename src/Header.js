@@ -15,6 +15,9 @@ class Header extends Component {
               <NavLink to="/counter1">Counter 1</NavLink>
             </li>
             <li>
+              <NavLink to="/form">Form Example</NavLink>
+            </li>
+            <li>
               <NavLink to="/lifecycle">Lifecycle Example</NavLink>
             </li>
           </ul>
