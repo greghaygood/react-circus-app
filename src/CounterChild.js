@@ -1,16 +1,11 @@
-import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import React from "react";
 
-import './Counter.css';
+import Counter from './Counter';
 
-class Counter extends Component {
+class CounterChild extends Counter {
   constructor(props) {
+    console.log('CounterChild.constructor');
     super(props);
-    console.log('Counter.constructor');
-
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
-    this.reset = this.reset.bind(this);
 
     this.state = {
       counter: 0
@@ -18,35 +13,32 @@ class Counter extends Component {
   }
 
   componentWillMount() {
-      console.log('Counter.componentWillMount');
+      console.log('CounterChild.componentWillMount');
   }
 
   componentDidMount() {
-      console.log('Counter.componentDidMount');
+      console.log('CounterChild.componentDidMount');
   }
 
   componentWillReceiveProps(nextProps) {
-      console.log('Counter.componentWillReceiveProps', nextProps);
+      console.log('CounterChild.componentWillReceiveProps', nextProps);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-      console.log('Counter.shouldComponentUpdate', this.props, nextProps, this.state, nextState);
-      // if (this.state.counter != nextState.counter) {
-      //   return false;
-      // }
+      console.log('CounterChild.shouldComponentUpdate', nextProps, nextState);
       return true;
   }
 
   componentWillUpdate(nextProps, nextState) {
-      console.log('Counter.componentWillUpdate', nextProps, nextState);
+      console.log('CounterChild.componentWillUpdate', nextProps, nextState);
   }
 
   componentDidUpdate(prevProps, prevState) {
-      console.log('Counter.componentDidUpdate', prevProps, prevState);
+      console.log('CounterChild.componentDidUpdate', prevProps, prevState);
   }
 
   componentWillUnmount() {
-      console.log('Counter.componentWillUnmount');
+      console.log('CounterChild.componentWillUnmount');
   }
 
   increment() {
@@ -72,14 +64,14 @@ class Counter extends Component {
   }
 
   render() {
-    console.log('Counter.render');
+    console.log('CounterChild.render');
     const { num } = this.props;
     const { counter } = this.state;
 
     return (
       <div className="counter">
         <h2>
-          Counter #{num}: {counter}
+          Child Counter #{num}: {counter}
         </h2>
         <nav>
           <button onClick={this.increment}>+</button>
@@ -91,8 +83,4 @@ class Counter extends Component {
   }
 }
 
-Counter.propTypes = {
-  num: PropTypes.number.isRequired,
-};
-
-export default Counter;
+export default CounterChild;
