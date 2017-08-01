@@ -1,0 +1,36 @@
+.form {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.form .field {
+  width: 400px;
+  margin-bottom: 0.5em;
+}
+
+.form label {
+  overflow: hidden;
+  clear: both;
+  display: block;
+  margin: 0 auto;
+}
+
+.form label span,
+.form label input {
+  float: left;
+}
+
+.form label span {
+  width: 200px;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.form label input {
+  width: 100px;
+}
+
+.form button {
+  width: 100px;
+  margin-left: 120px;
+}

@@ -6,6 +6,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Counter from "./Counter";
 import Header from "./Header";
 import Lifecycle from "./Lifecycle";
+import CounterForm from "./CounterForm";
 import Form from "./Form";
 import Root from "./Root";
 import NotFound404 from "./NotFound404";
@@ -30,6 +31,7 @@ class App extends Component {
               <Route path="/counter2" component={() => CounterPage(2)}  />
               <Route path="/lifecycle" component={Lifecycle}  />
               <Route path="/form" component={Form}  />
+              <Route path="/counter-form" component={CounterForm}  />
               <Route component={NotFound404} />
             </Switch>
           </div>
