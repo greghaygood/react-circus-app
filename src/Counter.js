@@ -21,13 +21,13 @@ class Counter extends Component {
     };
   }
 
-  componentWillMount() {
-    console.log("Counter.componentWillMount");
-  }
+  // componentWillMount() {
+  //   console.log("Counter.componentWillMount");
+  // }
 
-  componentDidMount() {
-    console.log("Counter.componentDidMount");
-  }
+  // componentDidMount() {
+  //   console.log("Counter.componentDidMount");
+  // }
 
   componentWillReceiveProps(nextProps) {
     console.log("Counter.componentWillReceiveProps", nextProps);

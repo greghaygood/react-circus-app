@@ -20,9 +20,9 @@ class CounterForm extends Component {
     };
   }
 
-  componentWillMount() {
-    console.log("CounterForm.componentWillMount");
-  }
+  // componentWillMount() {
+  //   console.log("CounterForm.componentWillMount");
+  // }
 
   componentDidMount() {
     console.log("CounterForm.componentDidMount");
@@ -31,26 +31,26 @@ class CounterForm extends Component {
     this.getData("value");
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log("CounterForm.componentWillReceiveProps", nextProps);
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   console.log("CounterForm.componentWillReceiveProps", nextProps);
+  // }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log("CounterForm.shouldComponentUpdate", nextProps, nextState);
-    return true;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("CounterForm.shouldComponentUpdate", nextProps, nextState);
+  //   return true;
+  // }
 
-  componentWillUpdate(nextProps, nextState) {
-    console.log("CounterForm.componentWillUpdate", nextProps, nextState);
-  }
+  // componentWillUpdate(nextProps, nextState) {
+  //   console.log("CounterForm.componentWillUpdate", nextProps, nextState);
+  // }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log("CounterForm.componentDidUpdate", prevProps, prevState);
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log("CounterForm.componentDidUpdate", prevProps, prevState);
+  // }
 
-  componentWillUnmount() {
-    console.log("CounterForm.componentWillUnmount");
-  }
+  // componentWillUnmount() {
+  //   console.log("CounterForm.componentWillUnmount");
+  // }
 
   updateName(event) {
     console.log(
@@ -58,9 +58,9 @@ class CounterForm extends Component {
       event.target.name,
       event.target.value
     );
-    const name = event.target.name;
+    const elementName = event.target.name;
     const val = event.target.value;
-    this.setState({ [name]: val });
+    this.setState({ [elementName]: val });
   }
 
   updateValue(event) {
@@ -137,7 +137,9 @@ class CounterForm extends Component {
 
     return (
       <div>
+    {/*this.props.num
         <h2>Counter Form</h2>
+        */}
         <hr />
         <div className="form">
           <div className="field">

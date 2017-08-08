@@ -12,8 +12,22 @@ import Root from "./Root";
 import NotFound404 from "./NotFound404";
 
 const CounterPage = (num) => (
-  <Counter num={num} />
+  <Counter numberKey={num} />
 )
+
+class CounterPage2 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  render() {
+    const { num } = this.props;
+    const numberKey = this.props.num;
+    return <Counter num={this.props.num} />;
+  }
+}
+
 
 class App extends Component {
   render() {
