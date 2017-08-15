@@ -2,12 +2,26 @@ import React, { Component } from "react";
 import "./App.css";
 import { NavLink } from "react-router-dom";
 
+import styles from 'styled-components';
+
+const width = 10;
+
+export const Nav = styles.nav`
+  background-color: green; 
+  border: 1px solid ${width};
+`;
+
 class Header extends Component {
+
   render() {
+
+    const { counter } = this.props;
+
     return (
       <div className="App-Menu">
-        <nav>
-          <ul>
+      Count: {counter}
+        <Nav>
+          <ul className="menu">
             <li>
               <NavLink to="/" exact>Home</NavLink>
             </li>
@@ -24,7 +38,7 @@ class Header extends Component {
               <NavLink to="/lifecycle">Lifecycle Example</NavLink>
             </li>
           </ul>
-        </nav>
+        </Nav>
       </div>
     );
   }

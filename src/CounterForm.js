@@ -14,9 +14,10 @@ class CounterForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
 
     console.log("CounterForm.constructor");
+    let count = this.props.counter || 0
     this.state = {
-      name: "my new counter",
-      value: 0
+      title: "my new counter",
+      value: count
     };
   }
 
@@ -27,8 +28,8 @@ class CounterForm extends Component {
   componentDidMount() {
     console.log("CounterForm.componentDidMount");
 
-    this.getData("name");
-    this.getData("value");
+    // this.getData("name");
+    // this.getData("value");
   }
 
   componentWillReceiveProps(nextProps) {
@@ -145,9 +146,16 @@ class CounterForm extends Component {
               <span>Name the counter</span>
               <input
                 type="text"
-                name="name"
+                name="title"
                 onChange={this.updateName}
-                value={this.state.name}
+                value={this.state.title}
+              />
+
+                <input
+                type="text"
+                name="firstName"
+                onChange={this.updateName}
+                value={this.state.firstName}
               />
             </label>
           </div>
@@ -167,7 +175,7 @@ class CounterForm extends Component {
           </div>
         </div>
         <hr />
-        <Counter title={this.state.name} initialValue={this.state.value} />
+        <Counter title={this.state.name} initialValue={this.state.value} updateCounter={this.props.updateCounter}/>
       </div>
     );
   }

@@ -59,6 +59,8 @@ class Counter extends Component {
   increment() {
     this.setState({
       counter: this.state.counter + 1
+    }, function() {
+      this.props.updateCounter(this.state.counter);
     });
   }
 
@@ -69,13 +71,17 @@ class Counter extends Component {
     }
     this.setState({
       counter: newCount
-    });
+    }, function() {
+      this.props.updateCounter(this.state.counter);
+    })
   }
 
   reset() {
     this.setState({
       counter: 0
-    });
+    }, function() {
+      this.props.updateCounter(this.state.counter);
+    })
   }
 
   render() {
