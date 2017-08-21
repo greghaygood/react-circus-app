@@ -175,7 +175,7 @@ class CounterForm extends Component {
           </div>
         </div>
         <hr />
-        <Counter title={this.state.name} initialValue={this.state.value} updateCounter={this.props.updateCounter}/>
+        <Counter loading titlex={this.state.name} initialValue={this.state.value} updateCounter={this.props.updateCounter}/>
       </div>
     );
   }

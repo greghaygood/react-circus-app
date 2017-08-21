@@ -84,27 +84,55 @@ class Counter extends Component {
     })
   }
 
+  renderEmpty() {
+    return (
+        <div><p>Loading...</p></div>
+      )
+  }
+
+  renderLine(object) {
+    return (<li><h2>${object}</h2></li>)
+  }
+
+ 
   render() {
     console.log("Counter.render");
-    const { title } = this.props;
-    const { counter } = this.state;
+    const { loading } = this.props;
+    const { counterTitle, counter } = this.state;
+
+ const images = [
+    'image1',
+    'image2',
+    'image3',
+    'image4'
+  ];
+
 
     return (
       <div className="counter">
-        <h2>
-          {title}: {counter}
-        </h2>
-        <nav>
-          <button onClick={this.increment}>+</button>
-          <button onClick={this.decrement}>-</button>
-          <button onClick={this.reset}>reset</button>
-        </nav>
+      {loading && this.renderEmpty()}
+        <div>
+          <h2>
+            {counterTitle}: {counter}
+          </h2>
+          <ul>
+            {images.map( (name) => this.renderLine(name))}
+          </ul>
+          <nav>
+            <button onClick={this.increment}>+</button>
+            <button onClick={this.decrement}>-</button>
+            <button onClick={this.reset}>reset</button>
+          </nav>
+        </div>
+        
+
       </div>
     );
   }
 }
 
 Counter.propTypes = {
+  loading: PropTypes.bool,
   title: PropTypes.string.isRequired,
   initialValue: PropTypes.number.isRequired
 };
